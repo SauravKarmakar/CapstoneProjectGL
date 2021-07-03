@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS, cross_origin
-import pickle
+# import pickle
 # import tensorflow as tf
 
 
@@ -31,9 +31,10 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 @app.route('/')
 def defaultRoute():
     res = {
-        "name": "Capestone project GL",
+        "project": "Capestone project GL",
         "group": "Group 5C Jone 20B",
-        "members": ["Krish", "Shivangi","Rajlakshmi", "Saurav"]
+        "members": ["Krish", "Shivangi","Rajlakshmi", "Saurav"],
+        "mentor": "Akshay Kumar"
     }
     return jsonify(res)
 
@@ -58,7 +59,7 @@ def predictAssignmentGroup():
     # Final output response string
     res_json['short_desc'] = features_array[0]
     res_json['desc'] = features_array[1]
-    res_json['combined_string'] = df['Combined Description'].values[0]
+    res_json['combined_desc'] = df['Combined Description'].values[0]
 
     # Tokenizing it
     tokenizer.fit_on_texts(df['Combined Description'].values)
@@ -85,4 +86,5 @@ def get_model_summary(model: tf.keras.Model) -> str:
 
 if __name__ == '__main__':
     # app.run(debug=True, port=8080)
+    # Below line is needed for the cloud
     app.run(host="0.0.0.0",debug=True, port=8080)

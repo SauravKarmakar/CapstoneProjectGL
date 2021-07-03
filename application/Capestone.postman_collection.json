@@ -1,0 +1,110 @@
+{
+	"info": {
+		"_postman_id": "e193e6b9-53d6-4647-869c-eff1bb88a6a0",
+		"name": "Capestone",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Cloud",
+			"item": [
+				{
+					"name": "Default Route",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{cloud_server_ip}}:8080",
+							"protocol": "http",
+							"host": [
+								"{{cloud_server_ip}}"
+							],
+							"port": "8080"
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Predict",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"short_desc\": \"login issue\",\r\n    \"desc\": \" verify user detail employee manager name check the user name in ad and reset the password advise the user to login and check caller confirm that -PRON- be able to login issue resolve\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{cloud_server_ip}}:8080/predict",
+							"protocol": "http",
+							"host": [
+								"{{cloud_server_ip}}"
+							],
+							"port": "8080",
+							"path": [
+								"predict"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Local",
+			"item": [
+				{
+					"name": "Default Route",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{local_server_ip}}:8080/",
+							"protocol": "http",
+							"host": [
+								"{{local_server_ip}}"
+							],
+							"port": "8080",
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Predict",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"short_desc\": \"login issue\",\r\n    \"desc\": \" verify user detail employee manager name check the user name in ad and reset the password advise the user to login and check caller confirm that -PRON- be able to login issue resolve\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{local_server_ip}}:8080/predict",
+							"protocol": "http",
+							"host": [
+								"{{local_server_ip}}"
+							],
+							"port": "8080",
+							"path": [
+								"predict"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
